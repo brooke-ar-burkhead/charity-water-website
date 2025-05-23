@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>charity:water</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .cta {
+      background-color: #FFC907;
+    }
+    body, h1, h2, h3, h4, h5, h6, p, a, .btn {
+      font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+    }
+    body {
+      background-color: #fff7e1;
+    }
+    .hero .btn,
+    .cta .btn {
+      background-color: #FFC907;
+      color: #1A1A1A;
+    }
+    /* Add color for hero headline and subheadline */
+    .hero h1,
+    .hero h2 {
+      color: #BF6C46;
+    }
+    nav {
+      background: #FED8C1;
+      border-bottom: 1px solid #eee;
+      padding: 1rem 0;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+      /* Remove font styles since logo is now an image */
+      font-weight: unset;
+      font-size: unset;
+      color: unset;
+      text-decoration: none;
+      letter-spacing: unset;
+      margin-right: 1.5rem;
+    }
+    nav .logo img {
+      width: 300px;
+      max-height: 300px;
+      display: block;
+      object-fit: contain;
+      margin-left: 5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      background: #FFC907;
+      border-radius: 2rem;
+      padding: 0.75rem 2.75rem;
+      margin: 0 0.5rem;
+      transition: box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      white-space: nowrap;
+    }
+    nav ul li:hover {
+      box-shadow: 0 2px 8px rgba(255, 201, 7, 0.15);
+    }
+    nav ul li a {
+      color: #1A1A1A;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 1.15rem;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+    nav ul li a:hover {
+      color: #fff;
+    }
+    nav ul li a,
+    .hero .btn,
+    .cta .btn {
+      font-family: 'Cardo', Georgia, serif;
+    }
+    /* Removed menu-icon and profile-icon styles */
+    .hero-box {
+      background: #003366;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .subhero-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .subhero-box {
+      background: #003366;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: left;
+      flex: 1.2;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .subhero-box h2 {
+      margin: 0;
+      color: #BF6C46;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      font-family: 'Cardo', Georgia, serif;
+      text-align: left;
+      width: 100%;
+    }
+    .subhero-image {
+      flex: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .subhero-image img {
+      max-width: 100%;
+      max-height: 350px;
+      width: auto;
+      height: auto;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+    .hero .btn.cta-below {
+      margin-top: 0.5rem;
+      margin-left: 0;
+      margin-right: 0rem;
+      display: block;
+      width: fit-content;
+    }
+    .mission-section {
+      margin: 2rem auto 2rem auto;
+      max-width: 900px;
+      text-align: center;
+    }
+    .mission-section .subheading {
+      font-size: 2rem;
+      color: #003366;
+      margin-bottom: 1rem;
+      font-family: 'Cardo', Georgia, serif;
+    }
+    .donate-button-container {
+      margin-top: 1rem;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1000;
+    }
+    .donate-button {
+      background: #FFC907;
+      color: #1A1A1A;
+      font-family: 'Cardo', Georgia, serif;
+      font-size: 1.1rem;
+      padding: 0.75rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .donate-button:hover {
+      background: #e6b800;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="images/charity:water.jpeg" alt="charity:water logo">
+      </a>
+      <ul>
+        <li><a href="#Our Mission">Our Mission</a></li>
+        <li><a href="#Events">Events</a></li>
+        <li><a href="#Resources">Resources</a></li>
+        <li><a href="#Support">Support</a></li>
+      </ul>
+      <!-- Removed menu-icon and profile-icon elements -->
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <h1>Hydrate Hope: Empower Lives with Every Drop You Give—Experience Transparency Through Real-Time Project Updates</h1>
+      </div>
+      <div class="subhero-row">
+        <div class="subhero-box">
+          <h2>At charity: water, 100% of your donation funds clean water projects, with real-time GPS and photo updates showing the lives you help transform.</h2>
+        </div>
+        <div class="subhero-image">
+          <img src="images/GirlDrinkingWater.jpeg" alt="Girl drinking water">
+        </div>
+      </div>
+      <a href="#cta" class="btn cta-below">Donate</a>
+    </div>
+  </header>
+
+  <section class="mission-section">
+    <div class="mission-content">
+      <h2>Our Mission</h2>
+      <p>Empowering communities through sustainable initiatives and education.</p>
+    </div>
+  </section>
+
+  <div class="donate-button-container">
+    <a href="#donate" class="donate-button">Donate</a>
+  </div>
+
+  <section class="features">
+    <div class="container">
+      <div class="feature">
+        <img src="images/feature1.png" alt="Feature 1" />
+        <h2>At charity: water, 100% of your donation funds clean water projects, with real-time GPS and photo updates showing the lives you help transform.</h2>
+        <p>Short description of the feature.</p>
+      </div>
+      <!-- Repeat for additional features -->
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+    <div class="container">
+      <h2>Ready to Get Started?</h2>
+      <a href="mailto:contact@yourdomain.com" class="btn">Contact Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
