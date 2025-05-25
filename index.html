@@ -34,6 +34,98 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #003366;
+      cursor: pointer;
+      margin-left: 1rem;
+      z-index: 1001;
+    }
+    .hamburger {
+      display: none;
+      /* Remove all hamburger styles */
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      transition: max-height 0.3s;
+      width: 100%;
+    }
+    nav ul li {
+      background: #FFC907;
+      border-radius: 2rem;
+      margin: 0 0.5rem;
+      transition: box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: unset;
+      width: auto;
+      white-space: nowrap;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #1A1A1A;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 1.15rem;
+      text-align: center;
+      display: block;
+      padding: 0.75rem 2.75rem;
+      border-radius: 2rem;
+      font-family: 'Cardo', Georgia, serif;
+      width: 100%;
+    }
+    nav ul li a:hover {
+      color: #fff;
+    }
+    @media (max-width: 900px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #FED8C1;
+        width: 220px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        border-radius: 0 0 1rem 1rem;
+        max-height: 0;
+        overflow: hidden;
+        gap: 0;
+        z-index: 1000;
+      }
+      nav ul.open {
+        max-height: 500px;
+        padding: 1rem 0;
+        transition: max-height 0.3s;
+      }
+      nav ul li {
+        margin: 0;
+        padding: 0;
+        min-width: unset;
+        border-radius: 0;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      nav ul li a {
+        width: 100%;
+        padding: 0.7rem 2rem;
+        border-radius: 2rem;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
     nav .logo {
       display: flex;
@@ -56,24 +148,24 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
       margin: 0;
       padding: 0;
     }
     nav ul li {
       background: #FFC907;
       border-radius: 2rem;
-      padding: 0.75rem 2.75rem;
       margin: 0 0.5rem;
       transition: box-shadow 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 180px;
+      min-width: unset;
+      width: auto;
       white-space: nowrap;
-    }
-    nav ul li:hover {
-      box-shadow: 0 2px 8px rgba(255, 201, 7, 0.15);
+      padding: 0;
     }
     nav ul li a {
       color: #1A1A1A;
@@ -82,8 +174,11 @@
       transition: color 0.2s;
       font-size: 1.15rem;
       text-align: center;
-      width: 100%;
       display: block;
+      padding: 0.75rem 2.75rem;
+      border-radius: 2rem;
+      font-family: 'Cardo', Georgia, serif;
+      width: 100%;
     }
     nav ul li a:hover {
       color: #fff;
@@ -105,7 +200,7 @@
       display: flex;
       align-items: flex-start;
       gap: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0; /* Remove bottom margin so spacing is controlled by donate-cta-box margin */
     }
     .subhero-box {
       background: #003366;
@@ -145,6 +240,7 @@
       margin-top: 0.5rem;
       margin-left: 0;
       margin-right: 0rem;
+      position: absolute
       display: block;
       width: fit-content;
     }
@@ -182,6 +278,362 @@
       background: #e6b800;
       color: #fff;
     }
+    /* Remove .donate-box styles */
+    .donate-cta-box {
+      background: #fff7e1;
+      border-radius: 1rem;
+      margin: 0 rem auto 0 auto;
+      padding: 1.5rem 0;
+      text-align: center;
+      position: absolute
+      width: 100%;
+      max-width: 450px;
+      /* border and box-shadow removed */
+    }
+    .features {
+      background: url('images/Handswithwater.png') center center/cover no-repeat;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .features-slider {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #fff7e1;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 2rem 1.5rem 2.5rem 1.5rem;
+    }
+    .feature-slide {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 0.5s;
+    }
+    .feature-slide.active {
+      display: flex;
+    }
+    .feature-slide img {
+      max-width: 320px;
+      max-height: 220px;
+      border-radius: 1rem;
+      margin-bottom: 1.2rem;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(191, 108, 70, 0.08);
+    }
+    .feature-slide h2 {
+      color: #003366;
+      font-family: 'Cardo', Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    .feature-slide p {
+      color: #1A1A1A;
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem 0;
+      font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #FFC907;
+      color: #003366;
+      border: none;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(255,201,7,0.12);
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .slider-btn.prev {
+      left: 1rem;
+    }
+    .slider-btn.next {
+      right: 1rem;
+    }
+    .slider-btn:hover {
+      background: #e6b800;
+      color: #fff;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .contact-cta-box {
+      background: #003366;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem 2.5rem 1.5rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      border: 2px solid #FFC907;
+      /* Add charity:water brand accent */
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-cta-box::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 120px;
+      height: 120px;
+      background: #FFC907;
+      opacity: 0.15;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .contact-cta-box::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      background: #FFC907;
+      opacity: 0.12;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .contact-cta-box > * {
+      position: relative;
+      z-index: 1;
+    }
+    .contact-cta-box h2 {
+      color: #FFC907;
+      margin-bottom: 1rem;
+      font-family: 'Cardo', Georgia, serif;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    .contact-cta-box .contact-info p,
+    .contact-cta-box .contact-info strong {
+      color: #fff;
+      font-size: 1.1rem;
+      margin: 0;
+      font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+    }
+    .contact-icons {
+      display: none;
+    }
+    .contact-cta-message {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+      color: #fff;
+    }
+    @media (max-width: 1024px) {
+      nav .logo img {
+        width: 200px;
+        max-height: 120px;
+      }
+      .features-slider {
+        max-width: 98vw;
+        padding: 1.5rem 0.5rem 2rem 0.5rem;
+      }
+      .contact-cta-box {
+        max-width: 95vw;
+        padding: 1.5rem 0.5rem 2rem 0.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: flex-start;
+      }
+      nav ul li {
+        min-width: 120px;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+      }
+      .hero-box {
+        padding: 1.2rem;
+        font-size: 1rem;
+      }
+      .subhero-row {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .subhero-box,
+      .subhero-image {
+        width: 100%;
+        max-width: 100%;
+        flex: unset;
+        padding: 1.2rem;
+      }
+      .subhero-image img {
+        max-width: 100%;
+        max-height: 220px;
+      }
+      .donate-cta-box {
+        max-width: 98vw;
+        padding: 1rem 0.5rem;
+      }
+      .features-slider {
+        padding: 1rem 0.2rem 1.5rem 0.2rem;
+      }
+      .contact-cta-box {
+        max-width: 98vw;
+        padding: 1rem 0.5rem 1.5rem 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav .logo img {
+        width: 120px;
+        max-height: 60px;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+      nav ul li {
+        min-width: unset;
+        width: 100%;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+      }
+      .hero-box {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+      }
+      .subhero-row {
+        gap: 0.7rem;
+      }
+      .subhero-box,
+      .subhero-image {
+        padding: 0.7rem;
+      }
+      .subhero-image img {
+        max-height: 120px;
+      }
+      .donate-cta-box,
+      .contact-cta-box {
+        max-width: 99vw;
+        padding: 0.7rem 0.2rem;
+        font-size: 0.98rem;
+      }
+      .features-slider {
+        padding: 0.7rem 0.1rem 1rem 0.1rem;
+      }
+      .feature-slide img {
+        max-width: 98vw;
+        max-height: 120px;
+      }
+      .contact-icons {
+        gap: 0.7rem;
+      }
+      .contact-icon img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+    .mission-content {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 2rem 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+    }
+    .mission-content h2 {
+      color: #003366;
+      font-family: 'Cardo', Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .mission-content p {
+      font-size: 1.15rem;
+      color: #1A1A1A;
+      margin-bottom: 1.5rem;
+      font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
+    }
+    @media (max-width: 600px) {
+      .mission-content {
+        padding: 1rem 0.5rem;
+      }
+    }
+    .nav-container {
+      background: linear-gradient(90deg, #FED8C1 80%, #FFC907 100%);
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 12px rgba(255,201,7,0.07);
+      padding: 0.5rem 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .logo-text {
+      font-family: 'Cardo', Georgia, serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #003366;
+      margin-left: 0.7rem;
+      letter-spacing: 1px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .nav-icon {
+      margin-right: 0.5em;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+    nav ul li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3em;
+    }
+    nav ul li a {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+    @media (max-width: 900px) {
+      .nav-container {
+        padding: 0.5rem 0.5rem;
+      }
+      .logo-text {
+        font-size: 1.3rem;
+      }
+    }
+    .social-media {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #fff;
+      text-align: center;
+    }
+    .social-media a {
+      color: #fff;
+      text-decoration: underline;
+      margin: 0 0.2em;
+    }
+    .social-media a:hover {
+      color: #BF6C46;
+    }
+    .nonprofit-note {
+      margin-top: 0.5rem;
+      font-size: 0.98rem;
+      color: #fff;
+      text-align: center;
+      opacity: 0.85;
+    }
   </style>
 </head>
 <body>
@@ -190,17 +642,19 @@
       <a href="#" class="logo">
         <img src="images/charity:water.jpeg" alt="charity:water logo">
       </a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       <ul>
         <li><a href="#Our Mission">Our Mission</a></li>
         <li><a href="#Events">Events</a></li>
         <li><a href="#Resources">Resources</a></li>
         <li><a href="#Support">Support</a></li>
       </ul>
+      <!-- Removed hamburger menu button -->
       <!-- Removed menu-icon and profile-icon elements -->
     </div>
   </nav>
 
-  <header class="hero">
+  <header class="hero" style="margin-top: 0;">
     <div class="container">
       <div class="hero-box">
         <h1>Hydrate Hope: Empower Lives with Every Drop You Give—Experience Transparency Through Real-Time Project Updates</h1>
@@ -210,46 +664,134 @@
           <h2>At charity: water, 100% of your donation funds clean water projects, with real-time GPS and photo updates showing the lives you help transform.</h2>
         </div>
         <div class="subhero-image">
-          <img src="images/GirlDrinkingWater.jpeg" alt="Girl drinking water">
+          <img src="images/GirlInBlueDress.jpeg" alt="Girl drinking water">
         </div>
       </div>
-      <a href="#cta" class="btn cta-below">Donate</a>
+      <div class="donate-cta-box">
+        <a href="#donate" class="donate-button">Donate</a>
+      </div>
     </div>
   </header>
 
   <section class="mission-section">
     <div class="mission-content">
       <h2>Our Mission</h2>
-      <p>Empowering communities through sustainable initiatives and education.</p>
+      <p>
+        At <span style="color:#FFC907;font-weight:bold;">charity:water</span>, we believe everyone deserves access to clean and safe water. 
+        Our mission is to bring clean water to people in need by funding sustainable water projects, empowering local communities, and providing transparent updates every step of the way.
+      </p>
     </div>
   </section>
 
-  <div class="donate-button-container">
-    <a href="#donate" class="donate-button">Donate</a>
-  </div>
-
   <section class="features">
     <div class="container">
-      <div class="feature">
-        <img src="images/feature1.png" alt="Feature 1" />
-        <h2>At charity: water, 100% of your donation funds clean water projects, with real-time GPS and photo updates showing the lives you help transform.</h2>
-        <p>Short description of the feature.</p>
+      <div class="features-slider">
+        <div class="feature-slide active">
+          <!-- <img src="images/feature-well.jpg" alt="Clean Water Well"> -->
+          <h2>Clean Water Wells</h2>
+          <p>We build sustainable wells in communities that need them most, providing access to clean, safe drinking water for generations.</p>
+        </div>
+        <div class="feature-slide">
+          <img src="images/feature-gps.jpg" alt="GPS Project Tracking" />
+          <h2>Project Transparency</h2>
+          <p>Track every project with GPS and photo updates, so you see exactly where your donation goes and the lives it transforms.</p>
+        </div>
+        <div class="feature-slide">
+          <img src="images/feature-education.jpg" alt="Community Education" />
+          <h2>Community Education</h2>
+          <p>We empower local leaders and teach communities about hygiene and maintenance to ensure long-term impact and health.</p>
+        </div>
+        <div class="feature-slide">
+          <img src="images/feature-100percent.jpg" alt="100% Model" />
+          <h2>100% Model</h2>
+          <p>100% of public donations fund clean water projects. Private donors cover our operating costs so every penny you give brings water to those in need.</p>
+        </div>
+        <!-- Add more slides as needed -->
+        <button class="slider-btn prev" aria-label="Previous">&#10094;</button>
+        <button class="slider-btn next" aria-label="Next">&#10095;</button>
       </div>
-      <!-- Repeat for additional features -->
     </div>
   </section>
 
   <section class="cta" id="cta">
     <div class="container">
-      <h2>Ready to Get Started?</h2>
-      <a href="mailto:contact@yourdomain.com" class="btn">Contact Us</a>
+      <div class="contact-cta-box">
+        <h2>Ready to Get Started?</h2>
+        <div class="contact-info">
+          <p>
+            <strong>Email:</strong> info@charitywater.org<br>
+            <strong>Phone:</strong> +1 (646) 688-2323<br>
+            <strong>Address:</strong> 40 Worth Street, Suite 330, New York, NY 10013, USA
+          </p>
+        </div>
+        <!-- Removed .contact-icons section -->
+        <div class="contact-cta-message">
+          <p>Together, we can end the water crisis. <span style="color:#FFC907;font-weight:bold;">100% of your donation funds clean water projects.</span></p>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+      <p>&copy; 2025 charity:water. All rights reserved.</p>
+      <div class="social-media">
+        <span>Follow us:</span>
+        <span>Twitter: <a href="https://twitter.com/charitywater" target="_blank">@charitywater</a></span> |
+        <span>Instagram: <a href="https://instagram.com/charitywater" target="_blank">@charitywater</a></span> |
+        <span>Facebook: <a href="https://facebook.com/charitywater" target="_blank">charity:water</a></span>
+      </div>
+      <div class="nonprofit-note">
+        charity: water is a 501(c)(3) nonprofit organization.
+      </div>
     </div>
   </footer>
+  <script>
+    // Simple slider logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.feature-slide');
+      const prevBtn = document.querySelector('.slider-btn.prev');
+      const nextBtn = document.querySelector('.slider-btn.next');
+      let current = 0;
+
+      function showSlide(idx) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === idx);
+        });
+      }
+
+      prevBtn.addEventListener('click', function() {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+      });
+
+      nextBtn.addEventListener('click', function() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      });
+
+      showSlide(current);
+    });
+    // Responsive nav menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      // Remove hamburger reference
+      const navUl = document.querySelector('nav ul');
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          navUl.classList.toggle('open');
+        });
+      }
+      // Optional: close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (
+          (menuToggle && !menuToggle.contains(e.target)) &&
+          !navUl.contains(e.target)
+        ) {
+          navUl.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
